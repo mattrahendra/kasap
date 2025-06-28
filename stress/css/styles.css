@@ -1,0 +1,129 @@
+/* Animations */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scale-in {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes count-up {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+    animation: slide-up 0.5s ease-out forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+.animate-scale-in {
+    animation: scale-in 0.6s ease-out forwards;
+}
+
+.animate-count-up {
+    animation: count-up 1s ease-out forwards;
+}
+
+/* Glow Effect */
+.glow-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, rgba(0, 163, 255, 0.3), rgba(0, 71, 171, 0.3));
+    filter: blur(8px);
+    z-index: -1;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Infinite Slider */
+.infinite-slider {
+    display: flex;
+    animation: slide-left 30s linear infinite;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.infinite-slider:hover {
+    animation-play-state: paused;
+}
+
+@keyframes slide-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Card Hover */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Group Hover */
+.group:hover .group-hover\:text-blue-600 {
+    color: #2563eb;
+}
+
+.group:hover .group-hover\:text-green-600 {
+    color: #16a34a;
+}
+
+.group:hover .group-hover\:text-red-600 {
+    color: #dc2626;
+}
+
+.group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+}
+
+.group:hover .group-hover\:scale-105 {
+    transform: scale(1.05);
+}
+
+/* Gradient Classes (Ensure these exist or add them) */
+.gradient-blue {
+    background: linear-gradient(135deg, #00A3FF 0%, #0047AB 100%);
+}
+
+.gradient-green {
+    background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+}
+
+.gradient-red {
+    background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+}
